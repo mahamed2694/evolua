@@ -395,9 +395,9 @@ function calcNovoMetabolismo(usuario, pesagens, historicoSemana){
 
 // SUGESTÃO PRÉ/PÓS TREINO baseada no histórico do dia
 function calcPrePosTreino(usuario, refeicoes, tipoTreino){
-  const totalCal=refeicoesData.reduce((s,r)=>s+(r.calorias_total||0),0);
-  const totalProt=refeicoesData.reduce((s,r)=>s+(r.proteina_total||0),0);
-  const totalCarb=refeicoesData.reduce((s,r)=>s+(r.carboidrato_total||0),0);
+  const totalCal=refeicoes.reduce((s,r)=>s+(r.calorias_total||0),0);
+  const totalProt=refeicoes.reduce((s,r)=>s+(r.proteina_total||0),0);
+  const totalCarb=refeicoes.reduce((s,r)=>s+(r.carboidrato_total||0),0);
   const gastoPrevisto=GASTO_TREINO[tipoTreino]||360;
   const metaCal=usuario.meta_calorica+gastoPrevisto;
   const calRestante=metaCal-totalCal;
@@ -832,7 +832,7 @@ function ExModal({ex,onClose}){
 // CALCULAR SUGESTÃO PROTEICA
 function calcSugestaoProt(usuario,refeicoes,calBebida){
   const totalCal=refeicoes.reduce((s,r)=>s+(r.calorias_total||0),0)+calBebida;
-  const totalProt=refeicoesData.reduce((s,r)=>s+(r.proteina_total||0),0);
+  const totalProt=refeicoes.reduce((s,r)=>s+(r.proteina_total||0),0);
   const restaProt=Math.max(0,usuario.meta_proteina-totalProt);
   const excCal=Math.max(0,totalCal-usuario.meta_calorica);
   if(restaProt<10)return null; // já bateu proteína
