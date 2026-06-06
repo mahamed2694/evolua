@@ -6,6 +6,10 @@
 <title>Evolua</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<link rel="manifest" href="data:application/json,{&quot;name&quot;:&quot;Evolua&quot;,&quot;short_name&quot;:&quot;Evolua&quot;,&quot;start_url&quot;:&quot;/&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%230a0e1a&quot;,&quot;theme_color&quot;:&quot;%234ade80&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0e1a'/><text y='.9em' font-size='80'>💪</text></svg>&quot;,&quot;sizes&quot;:&quot;any&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}"/>
+<meta name="theme-color" content="#0a0e1a"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -82,6 +86,7 @@ body{overflow-x:hidden}
 .ci-items{display:flex;gap:7px}
 .ci-item{flex:1;background:var(--bg3);border-radius:var(--rs);padding:9px 6px;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;border:1.5px solid transparent;transition:all .2s;min-height:72px;justify-content:center}
 .ci-item.done{border-color:var(--accent);background:rgba(74,222,128,.07)}
+.ci-item{border-color:rgba(74,222,128,.15)}
 .ci-ic{font-size:19px}
 .ci-lbl{font-size:9px;color:var(--text3);font-weight:500}
 .ci-val{font-size:11px;font-weight:700;color:var(--text)}
@@ -265,6 +270,57 @@ body{overflow-x:hidden}
 .sugestao-item-nm{font-size:13px;font-weight:600;color:var(--text)}
 .sugestao-item-mac{font-size:11px;color:var(--text3);margin-top:1px}
 .sugestao-item-cal{font-size:12px;color:var(--accent3);font-weight:700}
+
+/* META DINÂMICA */
+.meta-extra{font-size:11px;color:var(--accent);font-weight:700;margin-left:5px;vertical-align:middle}
+.meta-deduction{font-size:11px;color:var(--accent4);font-weight:700;margin-left:5px;vertical-align:middle}
+
+/* STREAK */
+.streak-card{margin:0 20px 10px;background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(248,113,113,.08));border:1px solid rgba(245,158,11,.25);border-radius:var(--r);padding:14px 16px;display:flex;align-items:center;gap:12px}
+.streak-num{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--accent3)}
+.streak-info{flex:1}
+.streak-title{font-size:14px;font-weight:600;color:var(--text)}
+.streak-sub{font-size:11px;color:var(--text3);margin-top:2px}
+
+/* PREPOST TREINO */
+.prepost-card{margin:0 20px 10px;background:var(--card);border:1px solid rgba(74,222,128,.2);border-radius:var(--r);padding:14px 16px}
+.prepost-title{font-size:12px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
+.prepost-item{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start}
+.prepost-badge{font-size:10px;padding:3px 8px;border-radius:20px;font-weight:600;white-space:nowrap;flex-shrink:0}
+.prepost-badge.pre{background:rgba(245,158,11,.15);color:var(--accent3)}
+.prepost-badge.pos{background:rgba(34,211,238,.15);color:var(--accent2)}
+.prepost-text{font-size:12px;color:var(--text2);line-height:1.5}
+
+/* PESO META LINHA */
+.peso-meta-line{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:11px;color:var(--text3)}
+.peso-meta-dot{width:10px;height:2px;background:var(--accent3);border-radius:2px;display:inline-block}
+.peso-atual-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block}
+
+/* DATE PICKER */
+.date-nav{display:flex;align-items:center;gap:10px;margin:0 20px 12px;background:var(--card);border:1px solid var(--border);border-radius:var(--rs);padding:10px 14px}
+.date-nav-btn{background:none;border:none;color:var(--text2);font-size:20px;cursor:pointer;padding:0 4px;line-height:1}
+.date-nav-label{flex:1;text-align:center;font-size:13px;font-weight:600;color:var(--text);cursor:pointer}
+
+/* RESUMO SEMANAL */
+.resumo-card{margin:0 20px 10px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px}
+.resumo-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.resumo-stat{background:var(--bg3);border-radius:var(--rs);padding:10px 12px}
+.resumo-stat-v{font-family:'Syne',sans-serif;font-size:18px;font-weight:700}
+.resumo-stat-l{font-size:10px;color:var(--text3);margin-top:2px}
+.resumo-frase{font-size:12px;color:var(--text2);line-height:1.6;background:var(--bg3);border-radius:var(--rs);padding:11px 13px;margin-top:8px;border-left:3px solid var(--accent)}
+
+/* MODO BEBIDA */
+.modo-bebida{margin:0 20px 10px;background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.2);border-radius:var(--r);padding:14px 16px}
+.modo-bebida-title{font-size:12px;font-weight:600;color:var(--accent4);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+
+/* HISTORICO TREINO */
+.hist-peso{font-size:10px;color:var(--accent2);font-style:italic;margin-top:1px}
+
+/* PWA INSTALL */
+.pwa-banner{margin:0 20px 10px;background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.2);border-radius:var(--rs);padding:12px 14px;display:flex;align-items:center;gap:10px;cursor:pointer}
+.pwa-banner-text{flex:1;font-size:12px;color:var(--text2);line-height:1.4}
+.pwa-banner-btn{font-size:11px;padding:6px 12px;background:var(--accent5);color:#1a0f3e;border-radius:20px;font-weight:700;white-space:nowrap;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+
 /* ANIMS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -286,32 +342,170 @@ const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZ
 const sb=supabase.createClient(SB_URL,SB_KEY);
 const IMG_BASE='https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/';
 
+
+// GASTO CALÓRICO TREINO (MET × peso × horas, intermediário, 1h)
+const GASTO_TREINO={A:370,B:350,C:430};
+
+// CALCULAR PREVISÃO DE PESO SEMANAL
+// Déficit/superávit real × 7 dias / 7700 kcal por kg
+function calcPrevisaoPeso(usuario, historicoSemana){
+  // historicoSemana: array de {cal, passos, treino} dos últimos 7 dias
+  if(!historicoSemana||historicoSemana.length<3)return null;
+  const mediaCalConsumida=historicoSemana.reduce((s,d)=>s+(d.cal||0),0)/historicoSemana.length;
+  const mediaPassos=historicoSemana.reduce((s,d)=>s+(d.passos||0),0)/historicoSemana.length;
+  const calPassos=mediaPassos*0.04;
+  const calTreino=historicoSemana.filter(d=>d.treino).length/historicoSemana.length*(GASTO_TREINO.A+GASTO_TREINO.B)/2;
+  const gastoTotal=usuario.meta_calorica+200+calPassos+calTreino; // TDEE estimado
+  const saldoDiario=mediaCalConsumida-gastoTotal;
+  const variacaoPeso=(saldoDiario*7)/7700; // kg por semana
+  return{variacaoPeso:+variacaoPeso.toFixed(2),saldoDiario:Math.round(saldoDiario),gastoTotal:Math.round(gastoTotal)};
+}
+
+// CALCULAR NOVO METABOLISMO ao pesar
+function calcNovoMetabolismo(usuario, pesagens, historicoSemana){
+  if(pesagens.length<2||!historicoSemana||historicoSemana.length<5)return null;
+  const pesoAtual=pesagens[0].peso;
+  const pesoAnterior=pesagens.find((p,i)=>i>0&&p.peso!==pesoAtual)?.peso;
+  if(!pesoAnterior)return null;
+  const previsao=calcPrevisaoPeso(usuario,historicoSemana);
+  if(!previsao)return null;
+  const variacaoReal=pesoAtual-pesoAnterior;
+  const variacaoPrevista=previsao.variacaoPeso;
+  const desvio=variacaoReal-variacaoPrevista;
+  // Se desvio > 0.3kg: metabolismo mais lento → reduzir calorias
+  // Se desvio < -0.3kg e objetivo recomposição: pode estar perdendo músculo → aumentar
+  if(Math.abs(desvio)<0.2)return null; // dentro do esperado, sem sugestão
+  const ajuste=desvio>0?-Math.round(desvio*1000/7):-Math.round(desvio*800/7);
+  const novaMetaCal=Math.max(1600,Math.min(3000,usuario.meta_calorica+ajuste));
+  const novaMetaProt=Math.round(pesoAtual*2.0);
+  // Recomposição: peso sobe = pode ser músculo (bom!), alertar diferente
+  const ehMusculos=usuario.objetivo==='recomposicao'&&variacaoReal>0&&variacaoReal<0.5;
+  return{
+    ajuste,novaMetaCal,novaMetaProt,
+    variacaoReal:+variacaoReal.toFixed(1),
+    variacaoPrevista:+variacaoPrevista.toFixed(1),
+    ehMusculos,
+    mensagem:ehMusculos
+      ?'Seu peso subiu levemente, mas em recomposição isso pode ser ganho de músculo! Ajuste fino nas calorias.'
+      :desvio>0
+        ?'Seu metabolismo está reagindo mais devagar que o previsto. Reduzir um pouco as calorias vai ajudar.'
+        :'Você está perdendo peso mais rápido que o previsto. Aumentar calorias protege o músculo.'
+  };
+}
+
+// SUGESTÃO PRÉ/PÓS TREINO baseada no histórico do dia
+function calcPrePosTreino(usuario, refeicoes, tipoTreino){
+  const totalCal=refeicoesData.reduce((s,r)=>s+(r.calorias_total||0),0);
+  const totalProt=refeicoesData.reduce((s,r)=>s+(r.proteina_total||0),0);
+  const totalCarb=refeicoesData.reduce((s,r)=>s+(r.carboidrato_total||0),0);
+  const gastoPrevisto=GASTO_TREINO[tipoTreino]||360;
+  const metaCal=usuario.meta_calorica+gastoPrevisto;
+  const calRestante=metaCal-totalCal;
+  const protRestante=Math.max(0,usuario.meta_proteina-totalProt);
+
+  // Pré: carboidrato para energia + proteína leve
+  // Pós: proteína para recuperação + carb para repor glicogênio
+  const sugestoesPre=[
+    {nome:'Banana + whey (30g)',cal:185,prot:25,carb:27,ic:'🍌'},
+    {nome:'Pão francês + queijo muçarela (45g)',cal:270,prot:18,carb:32,ic:'🍞'},
+    {nome:'Iogurte proteico + banana',cal:155,prot:16,carb:28,ic:'🥣'},
+    {nome:'Tapioca + frango desfiado (80g)',cal:220,prot:26,carb:28,ic:'🫓'},
+    {nome:'Arroz (100g) + ovo mexido',cal:280,prot:20,carb:32,ic:'🍳'},
+  ];
+  const sugestoesPos=[
+    {nome:'Whey protein (30g) + leite desnatado',cal:195,prot:32,carb:15,ic:'🥛'},
+    {nome:'Frango desfiado (150g) + arroz (100g)',cal:398,prot:48,carb:28,ic:'🍗'},
+    {nome:'Omelete 2 ovos + queijo branco',cal:280,prot:28,carb:3,ic:'🍳'},
+    {nome:'Atum (1 lata) + pão sírio',cal:295,prot:34,carb:30,ic:'🐟'},
+    {nome:'Iogurte proteico + frutas',cal:145,prot:18,carb:18,ic:'🫐'},
+  ];
+
+  // Seleciona melhor pré baseado no que falta de carboidrato
+  const melhorPre=sugestoesPre.sort((a,b)=>Math.abs(a.cal-Math.min(calRestante*.3,300))-Math.abs(b.cal-Math.min(calRestante*.3,300)))[0];
+  // Seleciona melhor pós baseado no que falta de proteína
+  const melhorPos=sugestoesPos.sort((a,b)=>Math.abs(a.prot-protRestante*.6)-Math.abs(b.prot-protRestante*.6))[0];
+
+  return{
+    gastoPrevisto,
+    pre:melhorPre,
+    pos:melhorPos,
+    aviso:totalCal<400?'⚠️ Você comeu pouco hoje. Comer antes do treino é essencial para ter energia e não catabolizar.':null,
+  };
+}
+
+// CALCULAR STREAK
+function calcStreak(checkins){
+  if(!checkins||checkins.length===0)return 0;
+  const datas=checkins.map(c=>c.data).sort().reverse();
+  let streak=0;
+  let dataRef=new Date();
+  dataRef.setHours(0,0,0,0);
+  for(const data of datas){
+    const d=new Date(data+'T12:00:00');
+    const diff=Math.round((dataRef-d)/(1000*60*60*24));
+    if(diff<=1){streak++;dataRef=d;}
+    else break;
+  }
+  return streak;
+}
+
+// RESUMO SEMANAL
+function gerarResumoSemanal(dadosSemana, usuario){
+  if(!dadosSemana||dadosSemana.length<3)return null;
+  const diasComDados=dadosSemana.length;
+  const mediaCalSemana=Math.round(dadosSemana.reduce((s,d)=>s+(d.cal||0),0)/diasComDados);
+  const mediaProtSemana=Math.round(dadosSemana.reduce((s,d)=>s+(d.prot||0),0)/diasComDados);
+  const diasProtOk=dadosSemana.filter(d=>d.prot>=usuario.meta_proteina*.8).length;
+  const treinos=dadosSemana.filter(d=>d.treino).length;
+  const mediaPassosSemana=Math.round(dadosSemana.reduce((s,d)=>s+(d.passos||0),0)/diasComDados);
+  const dentroMeta=dadosSemana.filter(d=>d.cal<=usuario.meta_calorica*1.1&&d.cal>=usuario.meta_calorica*.7).length;
+
+  // Gerar frase personalizada baseada nos dados reais
+  let frase='';
+  if(diasProtOk<diasComDados*.5){
+    frase=`⚠️ Proteína abaixo da meta em ${diasComDados-diasProtOk} de ${diasComDados} dias — isso compromete o ganho muscular e dificulta a recomposição. Foco nisso na próxima semana.`;
+  } else if(dentroMeta>=diasComDados*.7&&treinos>=2){
+    frase=`💪 Ótima semana! Você ficou dentro da meta calórica ${dentroMeta} dias e treinou ${treinos}x. Continue assim.`;
+  } else if(mediaPassosSemana<7000){
+    frase=`👟 Seus passos médios (${mediaPassosSemana.toLocaleString()}) ficaram abaixo do ideal. Aumentar a caminhada acelera o processo de recomposição.`;
+  } else if(treinos===0){
+    frase=`🏋️ Semana sem treino registrado. Mesmo com dieta boa, o treino é fundamental para manter o músculo em déficit.`;
+  } else {
+    frase=`📊 Semana razoável. Continue registrando para identificar padrões e melhorar a precisão das suas metas.`;
+  }
+
+  return{mediaCalSemana,mediaProtSemana,diasProtOk,treinos,mediaPassosSemana,dentroMeta,diasComDados,frase};
+}
+
 // Mapeamento exercícios → imagens reais
 const EX_IMGS={
+  // TREINO A — Costas + Bíceps
   'Remada curvada com halteres':['Bent_Over_Two-Dumbbell_Row/0.jpg','Bent_Over_Two-Dumbbell_Row/1.jpg'],
   'Remada unilateral no banco':['One-Arm_Dumbbell_Row/0.jpg','One-Arm_Dumbbell_Row/1.jpg'],
   'Crucifixo inverso com halteres':['Bent_Over_Dumbbell_Rear_Delt_Raise_With_Head_On_Bench/0.jpg','Bent_Over_Dumbbell_Rear_Delt_Raise_With_Head_On_Bench/1.jpg'],
-  'Rosca scott improvisada no banco':['Cable_Preacher_Curl/0.jpg','Cable_Preacher_Curl/1.jpg'],
+  'Rosca scott improvisada no banco':['One_Arm_Dumbbell_Preacher_Curl/0.jpg','One_Arm_Dumbbell_Preacher_Curl/1.jpg'],
   'Rosca inclinada 45 graus':['Alternate_Incline_Dumbbell_Curl/0.jpg','Alternate_Incline_Dumbbell_Curl/1.jpg'],
   'Rosca martelo':['Alternate_Hammer_Curl/0.jpg','Alternate_Hammer_Curl/1.jpg'],
-  'Rosca direta com halter':['Dumbbell_Alternate_Bicep_Curl/0.jpg','Dumbbell_Alternate_Bicep_Curl/1.jpg'],
+  'Rosca direta com halter':['Dumbbell_Bicep_Curl/0.jpg','Dumbbell_Bicep_Curl/1.jpg'],
   'Rosca concentrada':['Concentration_Curls/0.jpg','Concentration_Curls/1.jpg'],
+  // TREINO B — Peito + Tríceps + Ombro
   'Supino inclinado com halteres':['Incline_Dumbbell_Press/0.jpg','Incline_Dumbbell_Press/1.jpg'],
-  'Supino reto com halteres':['Decline_Dumbbell_Bench_Press/0.jpg','Decline_Dumbbell_Bench_Press/1.jpg'],
-  'Crucifixo com halteres':['Decline_Dumbbell_Flyes/0.jpg','Decline_Dumbbell_Flyes/1.jpg'],
+  'Supino reto com halteres':['Dumbbell_Bench_Press/0.jpg','Dumbbell_Bench_Press/1.jpg'],
+  'Crucifixo com halteres':['Dumbbell_Flyes/0.jpg','Dumbbell_Flyes/1.jpg'],
   'Desenvolvimento com halteres':['Dumbbell_Shoulder_Press/0.jpg','Dumbbell_Shoulder_Press/1.jpg'],
   'Elevação lateral':['Cable_Seated_Lateral_Raise/0.jpg','Cable_Seated_Lateral_Raise/1.jpg'],
   'Tríceps testa com halter':['Cable_Lying_Triceps_Extension/0.jpg','Cable_Lying_Triceps_Extension/1.jpg'],
-  'Tríceps francês com halter':['Cable_Rope_Overhead_Triceps_Extension/0.jpg','Cable_Rope_Overhead_Triceps_Extension/1.jpg'],
-  'Flexão de braço':['Close-Grip_Push-Up/0.jpg','Close-Grip_Push-Up/1.jpg'],
+  'Tríceps francês com halter':['Standing_Dumbbell_Triceps_Extension/0.jpg','Standing_Dumbbell_Triceps_Extension/1.jpg'],
+  'Flexão de braço':['Pushups/0.jpg','Pushups/1.jpg'],
+  // TREINO C — Pernas + Glúteos + Core
   'Agachamento livre':['Bodyweight_Squat/0.jpg','Bodyweight_Squat/1.jpg'],
   'Agachamento com halteres':['Dumbbell_Squat/0.jpg','Dumbbell_Squat/1.jpg'],
   'Avanço com halteres':['Bodyweight_Walking_Lunge/0.jpg','Bodyweight_Walking_Lunge/1.jpg'],
   'Stiff com halteres':['Stiff-Legged_Dumbbell_Deadlift/0.jpg','Stiff-Legged_Dumbbell_Deadlift/1.jpg'],
+  'Panturrilha em pé':['Standing_Calf_Raises/0.jpg','Standing_Calf_Raises/1.jpg'],
   'Prancha':['Plank/0.jpg','Plank/1.jpg'],
   'Abdominal crunch':['Crunch/0.jpg','Crunch/1.jpg'],
   'Barra fixa':['Band_Assisted_Pull-Up/0.jpg','Band_Assisted_Pull-Up/1.jpg'],
-  'Panturrilha em pé':['Standing_Calf_Raises/0.jpg','Standing_Calf_Raises/1.jpg'],
 };
 
 // Helpers
@@ -319,7 +513,7 @@ const hoje=()=>new Date().toISOString().split('T')[0];
 const dataFmt=()=>new Date().toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});
 const calcM=(a,g)=>({cal:Math.round(a.calorias_100g*g/100),prot:+(a.proteina_100g*g/100).toFixed(1),carb:+(a.carboidrato_100g*g/100).toFixed(1),gord:+(a.gordura_100g*g/100).toFixed(1)});
 const imc=(p,h)=>(p/((h/100)**2)).toFixed(1);
-const tdee=(p,h,i,s,a=1.45)=>{
+const tdee=(p,h,i,s,a=1.375)=>{
   const tmb=s==='M'?88.36+(13.4*p)+(4.8*h)-(5.7*i):447.6+(9.2*p)+(3.1*h)-(4.3*i);
   return Math.round(tmb*a);
 };
@@ -451,8 +645,77 @@ function Onboarding({onComplete}){
   );
 }
 
+
+// MODAL AJUSTE METABOLISMO
+function MetabolismoModal({sugestao, usuario, onAceitar, onRecusar}){
+  const [aceitando, setAceitando]=useState(false);
+  const aceitar=async()=>{
+    setAceitando(true);
+    await sb.from('usuarios').update({
+      meta_calorica:sugestao.novaMetaCal,
+      meta_proteina:sugestao.novaMetaProt,
+      peso_atual:+usuario.peso_atual,
+    }).eq('id',usuario.id);
+    await sb.from('metas_historico').insert([{
+      usuario_id:usuario.id,
+      data_inicio:hoje(),
+      meta_calorica:sugestao.novaMetaCal,
+      meta_proteina:sugestao.novaMetaProt,
+      motivo_ajuste:`Ajuste automático: variação real ${sugestao.variacaoReal}kg vs previsto ${sugestao.variacaoPrevista}kg`,
+    }]);
+    onAceitar(sugestao.novaMetaCal, sugestao.novaMetaProt);
+    setAceitando(false);
+  };
+  return(<>
+    <div className="overlay"/>
+    <div className="sheet">
+      <div className="sh"/>
+      <div className="shdr">
+        <span className="shdr-t">🧠 Ajuste de metabolismo</span>
+      </div>
+      <div className="sbody">
+        <div style={{background:'var(--bg3)',borderRadius:'var(--rs)',padding:'13px 15px',display:'flex',flexDirection:'column',gap:'8px'}}>
+          <div style={{fontSize:'13px',color:'var(--text2)',lineHeight:1.6}}>{sugestao.mensagem}</div>
+          <div style={{display:'flex',gap:'16px',marginTop:'4px'}}>
+            <div><div style={{fontSize:'12px',color:'var(--text3)'}}>Variação real</div>
+              <div style={{fontSize:'16px',fontWeight:700,color:sugestao.variacaoReal>0?'var(--accent4)':'var(--accent)'}}>{sugestao.variacaoReal>0?'+':''}{sugestao.variacaoReal}kg</div></div>
+            <div><div style={{fontSize:'12px',color:'var(--text3)'}}>Variação prevista</div>
+              <div style={{fontSize:'16px',fontWeight:700,color:'var(--text2)'}}>{sugestao.variacaoPrevista>0?'+':''}{sugestao.variacaoPrevista}kg</div></div>
+          </div>
+        </div>
+        <div style={{fontSize:'12px',color:'var(--text3)',textTransform:'uppercase',letterSpacing:'.8px'}}>Nova sugestão de metas</div>
+        <div style={{display:'flex',gap:'8px'}}>
+          {[['🔥','Calorias',sugestao.novaMetaCal+'kcal',sugestao.ajuste>0?'var(--accent4)':'var(--accent)'],
+            ['💪','Proteína',sugestao.novaMetaProt+'g','var(--accent)'],
+          ].map(([ic,l,v,c])=>(
+            <div key={l} style={{flex:1,background:'var(--bg3)',borderRadius:'var(--rs)',padding:'12px',textAlign:'center'}}>
+              <div style={{fontSize:'16px',fontWeight:700,color:c}}>{ic} {v}</div>
+              <div style={{fontSize:'10px',color:'var(--text3)',marginTop:'3px'}}>{l}/dia</div>
+              <div style={{fontSize:'10px',color:'var(--text3)',marginTop:'2px'}}>
+                {sugestao.ajuste>0?'+':''}{sugestao.ajuste} kcal vs atual
+              </div>
+            </div>
+          ))}
+        </div>
+        {sugestao.ehMusculos&&<div style={{background:'rgba(74,222,128,.08)',border:'1px solid rgba(74,222,128,.2)',borderRadius:'var(--rs)',padding:'11px 13px',fontSize:'12px',color:'var(--accent)',lineHeight:1.6}}>
+          💪 Em recomposição, ganho de peso leve pode ser músculo — isso é positivo! A balança sobe mas a composição melhora.
+        </div>}
+        <div style={{display:'flex',gap:'9px'}}>
+          <button className="btn btn-s" style={{flex:1}} onClick={onRecusar}>Manter atual</button>
+          <button className="btn btn-p" style={{flex:2}} onClick={aceitar} disabled={aceitando}>
+            {aceitando?'Salvando...':'✓ Aceitar ajuste'}
+          </button>
+        </div>
+        <div style={{fontSize:'11px',color:'var(--text3)',textAlign:'center',lineHeight:1.6}}>
+          A próxima atualização de peso gerará um novo cálculo automaticamente.
+        </div>
+      </div>
+    </div>
+  </>);
+}
+
 // CHECKIN MODAL
-function CheckinModal({usuario,onClose,onSave}){
+function CheckinModal({usuario,onClose,onSave,onMetabolismo}){
   const [sono,setSono]=useState('');
   const [humor,setHumor]=useState(null);
   const [peso,setPeso]=useState('');
@@ -461,7 +724,21 @@ function CheckinModal({usuario,onClose,onSave}){
   const salvar=async()=>{
     const payload={usuario_id:usuario.id,data:hoje(),horas_sono:sono?+sono:null,qualidade_sono:humor,humor,peso_manha:peso?+peso:null,observacao:cigarros>0?`cigarros:${cigarros}`:null};
     const{error}=await sb.from('checkins_diarios').upsert([payload],{onConflict:'usuario_id,data'});
-    if(!error){if(peso)await sb.from('pesagens').insert([{usuario_id:usuario.id,peso:+peso,data:hoje()}]);onSave();}
+    if(!error){
+      if(peso){
+        await sb.from('pesagens').insert([{usuario_id:usuario.id,peso:+peso,data:hoje()}]);
+        await sb.from('usuarios').update({peso_atual:+peso}).eq('id',usuario.id);
+        // Verificar ajuste de metabolismo
+        const{data:pess}=await sb.from('pesagens').select('*').eq('usuario_id',usuario.id).order('data',{ascending:false}).limit(10);
+        const{data:cks}=await sb.from('checkins_diarios').select('*').eq('usuario_id',usuario.id).order('data',{ascending:false}).limit(14);
+        if(pess&&cks&&pess.length>=2){
+          const hist=cks.map(c=>({cal:0,prot:0,passos:c.passos||0,treino:false}));
+          const sug=calcNovoMetabolismo(usuario,pess,hist);
+          if(sug){onMetabolismo&&onMetabolismo(sug);onSave();return;}
+        }
+      }
+      onSave();
+    }
     onClose();
   };
   return(<>
@@ -555,7 +832,7 @@ function ExModal({ex,onClose}){
 // CALCULAR SUGESTÃO PROTEICA
 function calcSugestaoProt(usuario,refeicoes,calBebida){
   const totalCal=refeicoes.reduce((s,r)=>s+(r.calorias_total||0),0)+calBebida;
-  const totalProt=refeicoes.reduce((s,r)=>s+(r.proteina_total||0),0);
+  const totalProt=refeicoesData.reduce((s,r)=>s+(r.proteina_total||0),0);
   const restaProt=Math.max(0,usuario.meta_proteina-totalProt);
   const excCal=Math.max(0,totalCal-usuario.meta_calorica);
   if(restaProt<10)return null; // já bateu proteína
@@ -654,24 +931,31 @@ function CadastroAlimentoModal({usuario,onClose,onSave,showToast}){
       if(videoRef.current){videoRef.current.srcObject=stream;videoRef.current.play();}
       // BarcodeDetector API
       if('BarcodeDetector' in window){
-        const detector=new BarcodeDetector({formats:['ean_13','ean_8','upc_a','upc_e','code_128']});
-        const scan=async()=>{
-          if(!videoRef.current||!scanning)return;
-          try{
-            const codes=await detector.detect(videoRef.current);
-            if(codes.length>0){
-              pararScan();
-              await buscarOFF(codes[0].rawValue);
-              return;
-            }
-          } catch(e){}
-          if(streamRef.current)requestAnimationFrame(scan);
+        const detector=new BarcodeDetector({formats:['ean_13','ean_8','upc_a','upc_e','code_128','qr_code']});
+        let ativo=true;
+        const scanLoop=async()=>{
+          while(ativo&&streamRef.current){
+            try{
+              if(videoRef.current&&videoRef.current.readyState>=2){
+                const codes=await detector.detect(videoRef.current);
+                if(codes.length>0){
+                  ativo=false;
+                  pararScan();
+                  await buscarOFF(codes[0].rawValue);
+                  return;
+                }
+              }
+            } catch(e){}
+            await new Promise(r=>setTimeout(r,300));
+          }
         };
-        requestAnimationFrame(scan);
+        // Aguarda vídeo carregar antes de iniciar
+        videoRef.current.onloadedmetadata=()=>scanLoop();
+        setTimeout(()=>{if(ativo)scanLoop();},1000);
       } else {
-        // Fallback: input manual do código
+        // Fallback: input manual
         pararScan();
-        const cod=prompt('Digite o código de barras:');
+        const cod=prompt('BarcodeDetector não suportado. Digite o código de barras:');
         if(cod)await buscarOFF(cod);
       }
     } catch(e){ showToast('Sem acesso à câmera.','e'); setScanning(false); }
@@ -932,7 +1216,40 @@ function AddAlimentoModal({usuario,tipo,onClose,onSave,showToast}){
       <div className="shdr"><span className="shdr-t">{tiposL[tipo]||'➕ Adicionar'}</span><button className="btn-ic" onClick={onClose} style={{fontSize:'13px',color:'var(--text3)'}}>✕</button></div>
       <div className="sbody">
         {step==='busca'&&<>
-          <div className="srch-wrap"><span className="srch-ic">🔍</span><input className="srch" placeholder="Buscar alimento... ex: frango, arroz" value={busca} onChange={e=>setBusca(e.target.value)} autoFocus/></div>
+          <div style={{display:'flex',gap:'8px',alignItems:'center'}}>
+            <div className="srch-wrap" style={{flex:1}}><span className="srch-ic">🔍</span><input className="srch" placeholder="Buscar alimento..." value={busca} onChange={e=>setBusca(e.target.value)} autoFocus/></div>
+            <button onClick={async()=>{
+              try{
+                if(!('BarcodeDetector' in window)){const cod=prompt('Digite o código de barras:');if(cod){const{data}=await sb.from('alimentos').select('*').eq('codigo_barras',cod).single();if(data){setSelecionado&&setSelecionado(data);setSel&&setSel(data);setStep('qtd');}else{showToast&&showToast('Código não encontrado','e');}}return;}
+                const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});
+                const video=document.createElement('video');video.srcObject=stream;video.play();
+                const detector=new BarcodeDetector({formats:['ean_13','ean_8','upc_a','upc_e','code_128']});
+                const tryRead=async()=>{
+                  for(let i=0;i<30;i++){
+                    await new Promise(r=>setTimeout(r,300));
+                    try{const codes=await detector.detect(video);
+                      if(codes.length>0){stream.getTracks().forEach(t=>t.stop());
+                        const cod=codes[0].rawValue;
+                        const{data:al}=await sb.from('alimentos').select('*').eq('codigo_barras',cod).single();
+                        if(al){setSel(al);setStep('qtd');showToast&&showToast('Produto encontrado! ✅');}
+                        else{
+                          const r=await fetch(`https://world.openfoodfacts.org/api/v0/product/${cod}.json`);
+                          const d=await r.json();
+                          if(d.status===1){const p=d.product;const n=p.nutriments||{};
+                            const novo={id:'temp_'+cod,nome:p.product_name||'Produto',marca:p.brands||'',calorias_100g:Math.round(n['energy-kcal_100g']||0),proteina_100g:+(n.proteins_100g||0).toFixed(1),carboidrato_100g:+(n.carbohydrates_100g||0).toFixed(1),gordura_100g:+(n.fat_100g||0).toFixed(1),fibra_100g:+(n.fiber_100g||0).toFixed(1)};
+                            setSel(novo);setStep('qtd');showToast&&showToast('Produto encontrado! ✅');
+                          }else{showToast&&showToast('Código não encontrado','e');}
+                        }
+                        return;
+                      }
+                    }catch(e){}
+                  }
+                  stream.getTracks().forEach(t=>t.stop());showToast&&showToast('Não foi possível ler. Tente novamente.','e');
+                };
+                tryRead();
+              }catch(e){showToast&&showToast('Sem acesso à câmera','e');}
+            }} style={{width:'44px',height:'44px',background:'rgba(34,211,238,.08)',border:'1.5px solid rgba(34,211,238,.25)',borderRadius:'var(--rs)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'20px',cursor:'pointer',flexShrink:0}}>📷</button>
+          </div>
           {res.length>0&&<div className="sres">{res.map(a=>(
             <div key={a.id} className="si" onClick={()=>{setSel(a);setStep('qtd');}}>
               <div><div className="si-n">{a.nome}{a.marca&&<span style={{fontSize:'10px',color:'var(--text3)'}}> · {a.marca}</span>}</div>
@@ -983,11 +1300,11 @@ function AddAlimentoModal({usuario,tipo,onClose,onSave,showToast}){
 
 // PASSOS MODAL
 function PassosModal({usuario,checkin,onClose,onSave}){
-  const [passos,setPassos]=useState(checkin?.passos||'');
+  const [passos,setPassos]=useState(checkinData?.passos||'');
   const [tipo,setTipo]=useState('parcial');
-  const [agua,setAgua]=useState(checkin?.agua_ml||'');
+  const [agua,setAgua]=useState(checkinData?.agua_ml||'');
   const salvar=async()=>{
-    const payload={usuario_id:usuario.id,data:hoje(),passos:+passos,passos_tipo:tipo,agua_ml:+agua||checkin?.agua_ml||0};
+    const payload={usuario_id:usuario.id,data:hoje(),passos:+passos,passos_tipo:tipo,agua_ml:+agua||checkinData?.agua_ml||0};
     await sb.from('checkins_diarios').upsert([payload],{onConflict:'usuario_id,data'});
     onSave();onClose();
   };
@@ -1045,29 +1362,76 @@ function EventoModal({usuario,onClose,onSave,showToast}){
   const analisar=async()=>{
     if(!desc.trim())return;
     setAnalisando(true);
-    // Análise local baseada em palavras-chave
     const texto=desc.toLowerCase();
     let cal=0;
     const itens=[];
-    // Pizza
-    const pizzaMatch=texto.match(/(\d+)\s*pedaço[s]?\s*de\s*pizza/);
-    if(pizzaMatch){const n=+pizzaMatch[1];cal+=n*270;itens.push(`${n} pedaço(s) de pizza ≈ ${n*270} kcal`);}
-    // Cerveja
-    const cervejaMatch=texto.match(/(\d+)\s*lata[s]?\s*(?:de\s*cerveja)?/);
-    if(cervejaMatch){const n=+cervejaMatch[1];const calC=texto.includes('duplo malte')||texto.includes('duplo')?193:150;cal+=n*calC;itens.push(`${n} lata(s) de cerveja ≈ ${n*calC} kcal`);}
-    // Coca cola
-    const colaMatch=texto.match(/(\d+)\s*coca/);
-    if(colaMatch){const n=+colaMatch[1];cal+=n*140;itens.push(`${n} Coca-Cola ≈ ${n*140} kcal`);}
-    // Hamburguer
-    if(texto.includes('hamburguer')||texto.includes('hambúrguer')){cal+=600;itens.push('Hambúrguer completo ≈ 600 kcal');}
-    // Vodka
-    const vodkaMatch=texto.match(/(\d+)\s*dose[s]?\s*(?:de\s*vodka)?/);
-    if(vodkaMatch){const n=+vodkaMatch[1];cal+=n*115;itens.push(`${n} dose(s) vodka ≈ ${n*115} kcal`);}
-    if(cal===0)cal=800; // estimativa genérica
-    const metaHoje=usuario.meta_calorica;
+
+    // Helper: extrair quantidade + item
+    const match=(regex,calPor,label)=>{
+      const m=texto.match(regex);
+      if(m){const n=+(m[1]||1);const total=Math.round(n*calPor);cal+=total;itens.push(`${n}x ${label} ≈ ${total} kcal`);return n;}
+      return 0;
+    };
+
+    // PIZZAS
+    match(/(\d+)\s*pedaço[s]?\s*de\s*pizza\s*(?:de\s*)?(?:quatro\s*queijos?|4\s*queijos?)/i,290,'pedaço pizza 4 queijos');
+    match(/(\d+)\s*pedaço[s]?\s*de\s*pizza\s*(?:de\s*)?(?:portuguesa)/i,278,'pedaço pizza portuguesa');
+    match(/(\d+)\s*pedaço[s]?\s*de\s*pizza\s*(?:de\s*)?(?:frango|catupiry)/i,268,'pedaço pizza frango');
+    match(/(\d+)\s*pedaço[s]?\s*de\s*pizza\s*(?:de\s*)?(?:atum)/i,255,'pedaço pizza atum');
+    match(/(\d+)\s*pedaço[s]?\s*de\s*pizza\s*(?:de\s*)?(?:muçarela|mussarela|queijo(?!\s*quatro))/i,266,'pedaço pizza muçarela');
+    // pizza genérica (se não casou acima)
+    if(!texto.match(/\d+\s*pedaço[s]?\s*de\s*pizza\s*(?:de\s*)?(?:portuguesa|frango|catupiry|atum|muçarela|mussarela|quatro|4)/i)){
+      match(/(\d+)\s*pedaço[s]?\s*(?:de\s*)?pizza/i,270,'pedaço de pizza');
+    }
+
+    // CERVEJAS por marca
+    match(/(\d+)\s*(?:lata[s]?|cerveja[s]?)\s*(?:de\s*)?(?:spaten)/i,165,'cerveja Spaten 350ml');
+    match(/(\d+)\s*(?:lata[s]?|cerveja[s]?)\s*(?:de\s*)?(?:heineken)/i,161,'cerveja Heineken 350ml');
+    match(/(\d+)\s*(?:lata[s]?|cerveja[s]?)\s*(?:de\s*)?(?:amstel)/i,154,'cerveja Amstel 350ml');
+    match(/(\d+)\s*(?:lata[s]?|cerveja[s]?)\s*(?:de\s*)?(?:brahma)/i,151,'cerveja Brahma 350ml');
+    match(/(\d+)\s*(?:lata[s]?|cerveja[s]?)\s*(?:de\s*)?(?:skol)/i,147,'cerveja Skol 350ml');
+    match(/(\d+)\s*(?:lata[s]?|cerveja[s]?)\s*(?:de\s*)?(?:itaipava)/i,140,'cerveja Itaipava 350ml');
+    match(/(\d+)\s*(?:lata[s]?|cerveja[s]?)\s*(?:de\s*)?(?:duplo\s*malte|duplo)/i,193,'cerveja duplo malte 350ml');
+    // cerveja genérica
+    if(!texto.match(/lata[s]?\s*(?:de\s*)?(?:spaten|heineken|amstel|brahma|skol|itaipava|duplo)/i)){
+      match(/(\d+)\s*(?:lata[s]?|cerveja[s]?)/i,150,'cerveja 350ml');
+    }
+
+    // CARNES CHURRASCO
+    match(/(\d+)\s*(?:g|gramas?)\s*(?:de\s*)?picanha/i,2.56,'picanha (por g)');
+    match(/(\d+)\s*(?:pedaço[s]?|fatia[s]?)\s*(?:de\s*)?picanha/i,350,'pedaço de picanha ~140g');
+    match(/(\d+)\s*linguiça[s]?\s*(?:toscana)?/i,295,'linguiça toscana');
+    match(/(\d+)\s*(?:g|gramas?)\s*(?:de\s*)?(?:frango|coxinha\s*da\s*asa)/i,2.15,'frango (por g)');
+    match(/(\d+)\s*coxinha[s]?\s*da\s*asa/i,215,'coxinha da asa');
+    match(/(\d+)\s*espetinho[s]?/i,200,'espetinho');
+    match(/(\d+)\s*(?:g|gramas?)\s*(?:de\s*)?(?:costela|costela)/i,2.8,'costela (por g)');
+    match(/(\d+)\s*pão[s]?\s*de\s*alho/i,310,'pão de alho');
+
+    // BEBIDAS
+    match(/(\d+)\s*(?:dose[s]?|copo[s]?)\s*(?:de\s*)?(?:vodka|smirnoff|askov)/i,115,'dose de vodka 50ml');
+    match(/(\d+)\s*(?:dose[s]?|copo[s]?)\s*(?:de\s*)?(?:whisky|whiskey)/i,125,'dose de whisky 50ml');
+    match(/(\d+)\s*(?:dose[s]?|copo[s]?)\s*(?:de\s*)?cachaça/i,105,'dose de cachaça 50ml');
+    match(/(\d+)\s*caipirinha[s]?/i,195,'caipirinha');
+    match(/(\d+)\s*(?:copo[s]?|lata[s]?)\s*(?:de\s*)?coca/i,140,'Coca-Cola lata');
+    match(/(\d+)\s*(?:copo[s]?|lata[s]?)\s*(?:de\s*)?guaraná/i,154,'Guaraná lata');
+
+    // FAST FOOD
+    match(/(\d+)\s*(?:big\s*mac|bigmac)/i,550,'Big Mac');
+    match(/(\d+)\s*(?:x-burguer|x-burger)/i,490,'X-Burguer');
+    match(/(\d+)\s*hamburguer[s]?\s*(?:artesanal)?/i,600,'hambúrguer artesanal');
+    match(/(\d+)\s*batata[s]?\s*frita[s]?/i,350,'batata frita média');
+    match(/(\d+)\s*(?:esfiha[s]?|esfirra[s]?)/i,260,'esfiha');
+    match(/(\d+)\s*coxinha[s]?(?!\s*da)/i,265,'coxinha');
+
+    // SOBREMESAS
+    match(/(\d+)\s*fatia[s]?\s*(?:de\s*)?bolo/i,380,'fatia de bolo');
+    match(/(\d+)\s*brigadeiro[s]?/i,62,'brigadeiro');
+
+    if(cal===0){cal=800;itens.push('Estimativa genérica para evento ≈ 800 kcal');}
+
     const excesso=Math.max(0,cal-300);
     const passoExtra=Math.round(excesso/0.04);
-    setResultado({cal,itens,excesso,passoExtra,metaHoje});
+    setResultado({cal,itens,excesso,passoExtra,metaHoje:usuario.meta_calorica});
     setAnalisando(false);
   };
 
@@ -1136,12 +1500,84 @@ function AddMenu({onClose,onSelect}){
   </>);
 }
 
+
+// MODAL TREINO AVULSO (qualquer dia)
+function TreinoDiaModal({usuario,onClose,onSave,showToast}){
+  const [tipoTreino,setTipoTreino]=useState('A');
+  const [duracao,setDuracao]=useState(60);
+  const [salvando,setSalvando]=useState(false);
+  const tipos=[['A','Costas + Bíceps',GASTO_TREINO.A],['B','Peito + Tríceps + Ombro',GASTO_TREINO.B],['C','Pernas + Glúteos + Core',GASTO_TREINO.C]];
+  const salvar=async()=>{
+    setSalvando(true);
+    const calGasto=Math.round(GASTO_TREINO[tipoTreino]*(duracao/60));
+    await sb.from('treinos').insert([{usuario_id:usuario.id,data:hoje(),nome:`Treino ${tipoTreino}`,grupos_musculares:tipos.find(t=>t[0]===tipoTreino)?.[1].split(' + '),duracao_minutos:duracao}]);
+    // Registrar no checkin
+    const obs=`treino:${tipoTreino}`;
+    await sb.from('checkins_diarios').upsert([{usuario_id:usuario.id,data:hoje(),observacao:obs}],{onConflict:'usuario_id,data'});
+    showToast(`Treino ${tipoTreino} registrado! +${calGasto} kcal extras 💪`);
+    onSave();onClose();setSalvando(false);
+  };
+  return(<>
+    <div className="overlay" onClick={onClose}/>
+    <div className="sheet">
+      <div className="sh"/>
+      <div className="shdr"><span className="shdr-t">🏋️ Adicionar treino de hoje</span><button className="btn-ic" onClick={onClose} style={{fontSize:'13px',color:'var(--text3)'}}>✕</button></div>
+      <div className="sbody">
+        <div className="fld"><label>Qual treino você fez?</label>
+          {tipos.map(([v,l,cal])=>(
+            <div key={v} onClick={()=>setTipoTreino(v)} style={{padding:'13px 15px',background:tipoTreino===v?'rgba(74,222,128,.08)':'var(--card)',border:`2px solid ${tipoTreino===v?'var(--accent)':'var(--border)'}`,borderRadius:'var(--rs)',cursor:'pointer',marginBottom:'7px',transition:'all .2s'}}>
+              <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+                <div><div style={{fontSize:'14px',fontWeight:600}}>Treino {v}</div><div style={{fontSize:'12px',color:'var(--text3)',marginTop:'2px'}}>{l}</div></div>
+                <span className="pill pill-g">~{cal} kcal</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="fld"><label>Duração (minutos)</label>
+          <div className="qty-wrap">
+            <button className="qty-btn" onClick={()=>setDuracao(d=>Math.max(20,d-5))}>−</button>
+            <input className="qty-inp" type="number" value={duracao} onChange={e=>setDuracao(+e.target.value)}/>
+            <button className="qty-btn" onClick={()=>setDuracao(d=>d+5)}>+</button>
+          </div>
+        </div>
+        <div style={{background:'var(--bg3)',borderRadius:'var(--rs)',padding:'12px 14px',fontSize:'13px',color:'var(--text2)'}}>
+          🔥 Gasto estimado: <strong style={{color:'var(--accent)'}}>{Math.round(GASTO_TREINO[tipoTreino]*(duracao/60))} kcal</strong> — será somado à sua meta calórica de hoje.
+        </div>
+        <button className="btn btn-p btn-w" onClick={salvar} disabled={salvando}>{salvando?'Salvando...':'Registrar treino ✓'}</button>
+      </div>
+    </div>
+  </>);
+}
+
 // INICIAR TREINO MODAL
 function IniciarTreinoModal({treino,usuario,onClose,onSave,showToast}){
   const [sets,setSets]=useState(()=>treino.exercicios.reduce((a,ex)=>({...a,[ex.nome]:Array(ex.series||3).fill({reps:'',peso:''})}),{}));
   const [exModal,setExModal]=useState(null);
   const [salvando,setSalvando]=useState(false);
   const [inicio]=useState(Date.now());
+  const [histTreino,setHistTreino]=useState({});
+
+  // Buscar histórico do último treino igual
+  useEffect(()=>{
+    const buscarHist=async()=>{
+      const{data:ult}=await sb.from('treinos').select('id').eq('usuario_id',usuario.id).eq('nome',treino.nome).order('data',{ascending:false}).limit(1).single();
+      if(!ult)return;
+      const{data:exs}=await sb.from('treino_exercicios').select('*').eq('treino_id',ult.id);
+      if(!exs)return;
+      const h={};
+      exs.forEach(e=>{h[e.nome_exercicio]={reps:e.repeticoes,peso:e.peso_kg};});
+      setHistTreino(h);
+      // Preencher sets com valores anteriores como placeholder
+      setSets(p=>{
+        const novo={...p};
+        Object.keys(h).forEach(nm=>{
+          if(novo[nm])novo[nm]=novo[nm].map(s=>({...s}));
+        });
+        return novo;
+      });
+    };
+    buscarHist();
+  },[]);
 
   const updateSet=(exNome,idx,campo,val)=>{
     setSets(p=>({...p,[exNome]:p[exNome].map((s,i)=>i===idx?{...s,[campo]:val}:s)}));
@@ -1178,6 +1614,7 @@ function IniciarTreinoModal({treino,usuario,onClose,onSave,showToast}){
               <div>
                 <div style={{fontSize:'14px',fontWeight:600,cursor:'pointer',color:'var(--accent2)'}} onClick={()=>abrirEx(ex.nome)}>{ex.nome} 📷</div>
                 <div style={{fontSize:'11px',color:'var(--text3)',marginTop:'1px'}}>{ex.dica}</div>
+                {histTreino[ex.nome]&&<div className="hist-peso">📊 Último: {histTreino[ex.nome].reps} reps · {histTreino[ex.nome].peso}kg</div>}
               </div>
             </div>
             <div style={{display:'flex',gap:'6px',marginBottom:'6px'}}>
@@ -1202,12 +1639,34 @@ function IniciarTreinoModal({treino,usuario,onClose,onSave,showToast}){
 }
 
 // DASHBOARD
-function Dashboard({usuario,checkin,refeicoes,refresh,showToast}){
+function Dashboard({usuario,checkin,refeicoes,refresh,showToast,streak,resumoSemanal,historicoSemana,pwaPrompt}){
   const [addModal,setAddModal]=useState(null);
-  const totalCal=refeicoes.reduce((s,r)=>s+(r.calorias_total||0),0);
-  const totalProt=refeicoes.reduce((s,r)=>s+(r.proteina_total||0),0);
-  const totalCarb=refeicoes.reduce((s,r)=>s+(r.carboidrato_total||0),0);
-  const totalGord=refeicoes.reduce((s,r)=>s+(r.gordura_total||0),0);
+  const [dataVis,setDataVis]=useState(hoje());
+  const [refeicoesData,setRefeicoesData]=useState(refeicoes);
+  const [checkinData,setCheckinData]=useState(checkin);
+  const isHoje=dataVis===hoje();
+
+  useEffect(()=>{setRefeicoesData(refeicoes);setCheckinData(checkin);},[refeicoes,checkin]);
+
+  const mudarData=async(dias)=>{
+    const d=new Date(dataVis+'T12:00:00');
+    d.setDate(d.getDate()+dias);
+    const novaData=d.toISOString().split('T')[0];
+    if(novaData>hoje())return;
+    setDataVis(novaData);
+    const[{data:ci},{data:refs}]=await Promise.all([
+      sb.from('checkins_diarios').select('*').eq('usuario_id',usuario.id).eq('data',novaData).single(),
+      sb.from('refeicoes').select('*').eq('usuario_id',usuario.id).eq('data',novaData),
+    ]);
+    setCheckinData(ci||null);
+    setRefeicoesData(refs||[]);
+  };
+
+  const dataLabel=isHoje?'Hoje':new Date(dataVis+'T12:00:00').toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'short'});
+  const totalCal=refeicoesData.reduce((s,r)=>s+(r.calorias_total||0),0);
+  const totalProt=refeicoesData.reduce((s,r)=>s+(r.proteina_total||0),0);
+  const totalCarb=refeicoesData.reduce((s,r)=>s+(r.carboidrato_total||0),0);
+  const totalGord=refeicoesData.reduce((s,r)=>s+(r.gordura_total||0),0);
   const pCal=Math.min(totalCal/usuario.meta_calorica*100,100);
   const pProt=Math.min(totalProt/usuario.meta_proteina*100,100);
   const pCarb=Math.min(totalCarb/(usuario.meta_carboidrato||150)*100,100);
@@ -1215,8 +1674,20 @@ function Dashboard({usuario,checkin,refeicoes,refresh,showToast}){
   const restaCal=Math.max(0,usuario.meta_calorica-totalCal);
   const restaProt=Math.max(0,usuario.meta_proteina-totalProt);
   // ajuste por passos
-  const calExtra=Math.round((checkin?.passos||0)*0.04);
-  const metaAjustada=usuario.meta_calorica+calExtra;
+  const calExtra=Math.round((checkinData?.passos||0)*0.04);
+  const treinoHoje=checkinData?.observacao?.includes('treino:')?checkinData.observacao.match(/treino:([ABC])/)?.[1]:null:null;
+  const calTreino=treinoHoje?GASTO_TREINO[treinoHoje]||0:0;
+  const metaAjustada=usuario.meta_calorica+calExtra+calTreino;
+  const extraTotal=calExtra+calTreino;
+  // Catabolismo: mais de 13k passos E proteína abaixo de 70%
+  const alertaCatabolismo=(checkinData?.passos||0)>13000&&totalProt<usuario.meta_proteina*.70;
+  // Modo bebida ativo
+  const temBebida=refeicoesData.find(r=>r.tipo==='bebida'&&(r.calorias_total||0)>80);
+  // Pré/pós treino
+  const diasTreino=['sabado','domingo','terca'];
+  const diaSemanaAtual=['domingo','segunda','terca','quarta','quinta','sexta','sabado'][new Date().getDay()];
+  const ehDiaTreino=diasTreino.includes(diaSemanaAtual)&&isHoje;
+  const prePost=ehDiaTreino?calcPrePosTreino(usuario,refeicoesData,'A'):null;
   const diasSemana=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
   const hojeIdx=new Date().getDay();
   const r=44;const circ=2*Math.PI*r;const offset=circ-(pCal/100)*circ;
@@ -1231,8 +1702,8 @@ function Dashboard({usuario,checkin,refeicoes,refresh,showToast}){
   if(restaProt>30)insights.push({c:'b',ic:'💪',t:'Proteína em falta',m:`Faltam ${restaProt.toFixed(0)}g de proteína. Adicione um whey, frango ou ovo.`});
   if(totalCal>metaAjustada*.95&&totalCal<metaAjustada*1.1)insights.push({c:'g',ic:'🎯',t:'Meta calórica quase fechada!',m:`${Math.round(totalCal)} / ${metaAjustada} kcal. Ótimo controle hoje.`});
   if(totalCal>metaAjustada*1.1)insights.push({c:'y',ic:'⚠️',t:'Calorias acima da meta',m:`+${Math.round(totalCal-metaAjustada)} kcal acima. Dê ${Math.round((totalCal-metaAjustada)/0.04).toLocaleString()} passos extras para compensar.`});
-  if(checkin?.horas_sono<6)insights.push({c:'r',ic:'😴',t:'Sono curto detectado',m:`${checkin.horas_sono}h de sono reduz recuperação e aumenta cortisol. Tente compensar hoje.`});
-  if(calExtra>0)insights.push({c:'g',ic:'👟',t:`+${calExtra} kcal extras pela caminhada`,m:`Você caminhou ${(checkin?.passos||0).toLocaleString()} passos. Sua meta calórica subiu para ${metaAjustada} kcal hoje.`});
+  if(checkinData?.horas_sono<6)insights.push({c:'r',ic:'😴',t:'Sono curto detectado',m:`${checkin.horas_sono}h de sono reduz recuperação e aumenta cortisol. Tente compensar hoje.`});
+  if(calExtra>0)insights.push({c:'g',ic:'👟',t:`+${calExtra} kcal extras pela caminhada`,m:`Você caminhou ${(checkinData?.passos||0).toLocaleString()} passos. Sua meta calórica subiu para ${metaAjustada} kcal hoje.`});
   if(insights.length===0&&totalCal>0)insights.push({c:'g',ic:'✅',t:'Dia no caminho certo!',m:'Continue assim! Você está dentro das metas. 🎯'});
 
   return(<div className="page">
@@ -1240,14 +1711,31 @@ function Dashboard({usuario,checkin,refeicoes,refresh,showToast}){
       <div className="greet-n">Olá, <span>{usuario.nome.split(' ')[0]}</span> 👋</div>
       <div className="greet-d">{dataFmt()}</div>
     </div>
+    {pwaPrompt&&<div className="pwa-banner" onClick={()=>pwaPrompt.prompt()}>
+      <span style={{fontSize:'22px'}}>📱</span>
+      <div className="pwa-banner-text">Instale o Evolua na tela inicial do seu celular para acesso rápido e notificações!</div>
+      <button className="pwa-banner-btn">Instalar</button>
+    </div>}
+    {streak>=3&&<div className="streak-card">
+      <div className="streak-num">🔥{streak}</div>
+      <div className="streak-info">
+        <div className="streak-title">{streak} dias seguidos!</div>
+        <div className="streak-sub">{streak>=7?'Semana perfeita! Continue assim.':streak>=5?'Quase uma semana completa!':'Boa sequência, não quebre!'}</div>
+      </div>
+    </div>}
+    <div className="date-nav">
+      <button className="date-nav-btn" onClick={()=>mudarData(-1)}>‹</button>
+      <span className="date-nav-label">{dataLabel} {!isHoje&&'📅'}</span>
+      <button className="date-nav-btn" onClick={()=>mudarData(1)} style={{opacity:isHoje?.3:1}}>›</button>
+    </div>
     {/* CHECK-IN */}
     <div className="card"><div className="ctitle">Check-in de hoje</div>
       <div className="ci-items">
-        {[{ic:'😴',l:'Sono',v:checkin?.horas_sono?`${checkin.horas_sono}h`:'—',done:!!checkin?.horas_sono},
-          {ic:'⚖️',l:'Peso',v:checkin?.peso_manha?`${checkin.peso_manha}kg`:`${usuario.peso_atual}kg`,done:!!checkin?.peso_manha},
-          {ic:'💧',l:'Água',v:checkin?.agua_ml?`${(checkin.agua_ml/1000).toFixed(1)}L`:'0L',done:(checkin?.agua_ml||0)>=1000},
-          {ic:'👟',l:'Passos',v:(checkin?.passos||0).toLocaleString(),done:(checkin?.passos||0)>=usuario.meta_passos},
-          {ic:'🚬',l:'Cigarros',v:checkin?.observacao?.includes('cigarros:')?checkin.observacao.split('cigarros:')[1]:'—',done:true},
+        {[{ic:'😴',l:'Sono',v:checkinData?.horas_sono?`${checkin.horas_sono}h`:'—',done:!!checkinData?.horas_sono},
+          {ic:'⚖️',l:'Peso',v:checkinData?.peso_manha?`${checkin.peso_manha}kg`:`${usuario.peso_atual}kg`,done:!!checkinData?.peso_manha},
+          {ic:'💧',l:'Água',v:checkinData?.agua_ml?`${(checkin.agua_ml/1000).toFixed(1)}L`:'0L',done:(checkinData?.agua_ml||0)>=1000},
+          {ic:'👟',l:'Passos',v:(checkinData?.passos||0).toLocaleString(),done:(checkinData?.passos||0)>=usuario.meta_passos},
+          {ic:'🚬',l:'Cigarros',v:checkinData?.observacao?.includes('cigarros:')?checkin.observacao.split('cigarros:')[1]:'—',done:true},
         ].map(it=><div key={it.l} className={`ci-item ${it.done?'done':''}`}><span className="ci-ic">{it.ic}</span><span className="ci-val">{it.v}</span><span className="ci-lbl">{it.l}</span></div>)}
       </div>
     </div>
@@ -1255,7 +1743,10 @@ function Dashboard({usuario,checkin,refeicoes,refresh,showToast}){
     <div className="card">
       <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'14px'}}>
         <span style={{fontSize:'13px',fontWeight:600,color:'var(--text2)'}}>Macros do dia</span>
-        <span style={{fontSize:'11px',color:'var(--text3)'}}>{calExtra>0?`Meta ajustada: ${metaAjustada} kcal`:restaCal>0?`Faltam ${Math.round(restaCal)} kcal`:'Meta atingida!'}</span>
+        <span style={{fontSize:'11px',color:'var(--text3)',display:'flex',alignItems:'center',gap:'3px'}}>
+          {restaCal>0?`Faltam ${Math.round(restaCal)} kcal`:'Meta atingida!'}
+          {extraTotal>0&&<span className="meta-extra">+{extraTotal}kcal</span>}
+        </span>
       </div>
       <div className="macro-wrap">
         <div className="ring-wrap">
@@ -1278,13 +1769,44 @@ function Dashboard({usuario,checkin,refeicoes,refresh,showToast}){
       </div>
     </div>
     {/* PASSOS */}
-    {checkin&&<div className="card">
+    {checkinData&&<div className="card">
       <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:'4px'}}>
         <div><div className="passos-num">{(checkin.passos||0).toLocaleString()}</div><div className="passos-meta">Meta: {usuario.meta_passos.toLocaleString()}</div></div>
         <span className="passos-badge">{checkin.passos_tipo==='parcial'?'🔄 Parcial':'✅ Final'}</span>
       </div>
       <div className="ptrack"><div className="pfill" style={{width:`${Math.min(100,(checkin.passos||0)/usuario.meta_passos*100)}%`}}/></div>
       <div className="pmsg">{(checkin.passos||0)>=usuario.meta_passos?`🎉 Meta atingida! Queima extra: ~${calExtra} kcal.`:checkin.passos_tipo==='parcial'?`👟 Faltam ${(usuario.meta_passos-(checkin.passos||0)).toLocaleString()} passos. Queima até agora: ~${calExtra} kcal.`:`📊 ${(usuario.meta_passos-(checkin.passos||0)).toLocaleString()} abaixo da meta.`}</div>
+    </div>}
+    {/* ALERTA CATABOLISMO */}
+    {alertaCatabolismo&&<div className="ins b">
+      <span className="ins-ico">⚡</span>
+      <div><div className="ins-t">Risco de catabolismo!</div>
+      <div className="ins-m">Você andou muito ({(checkinData?.passos||0).toLocaleString()} passos) e sua proteína está em {totalProt.toFixed(0)}g — abaixo de 70% da meta. Adicione proteína agora para proteger o músculo.</div>
+      </div>
+    </div>}
+    {/* MODO BEBIDA */}
+    {temBebida&&<div className="modo-bebida">
+      <div className="modo-bebida-title">🍺 Modo fim de semana ativo</div>
+      <div style={{fontSize:'12px',color:'var(--text2)',lineHeight:1.6,display:'flex',flexDirection:'column',gap:'5px'}}>
+        <span>💧 Beba 1 copo de água entre cada dose de álcool</span>
+        <span>🥗 Priorize proteínas nas próximas refeições</span>
+        <span>😴 Durma bem — o álcool reduz a recuperação muscular</span>
+        <span>✅ Um evento especial não desfaz seu progresso. Retome amanhã!</span>
+      </div>
+    </div>}
+    {/* PRÉ/PÓS TREINO */}
+    {prePost&&isHoje&&<div className="prepost-card">
+      <div className="prepost-title">🏋️ Dia de treino — sugestões</div>
+      {prePost.aviso&&<div style={{fontSize:'12px',color:'var(--accent4)',marginBottom:'8px',lineHeight:1.5}}>{prePost.aviso}</div>}
+      <div className="prepost-item">
+        <span className="prepost-badge pre">PRÉ</span>
+        <div className="prepost-text">{prePost.pre.ic} <strong>{prePost.pre.nome}</strong> — {prePost.pre.cal} kcal · {prePost.pre.prot}g prot · {prePost.pre.carb}g carbs<br/><span style={{fontSize:'11px',color:'var(--text3)'}}>45min antes do treino</span></div>
+      </div>
+      <div className="prepost-item">
+        <span className="prepost-badge pos">PÓS</span>
+        <div className="prepost-text">{prePost.pos.ic} <strong>{prePost.pos.nome}</strong> — {prePost.pos.cal} kcal · {prePost.pos.prot}g prot<br/><span style={{fontSize:'11px',color:'var(--text3)'}}>Até 1h após o treino</span></div>
+      </div>
+      <div style={{fontSize:'11px',color:'var(--text3)',marginTop:'5px'}}>Gasto estimado no treino: ~{prePost.gastoPrevisto} kcal ✓</div>
     </div>}
     {/* INSIGHTS */}
     {insights.map((ins,i)=><div key={i} className={`ins ${ins.c}`}><span className="ins-ico">{ins.ic}</span><div><div className="ins-t">{ins.t}</div><div className="ins-m">{ins.m}</div></div></div>)}
@@ -1301,11 +1823,25 @@ function Dashboard({usuario,checkin,refeicoes,refresh,showToast}){
         </div>)}
       </div>
     </div>
+    {/* RESUMO SEMANAL (domingo) */}
+    {resumoSemanal&&new Date().getDay()===0&&<div className="resumo-card">
+      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'6px'}}>
+        <span className="ctitle" style={{margin:0}}>Resumo da semana 📊</span>
+      </div>
+      <div className="resumo-stats">
+        {[['🔥','Média cal',resumoSemanal.mediaCalSemana+'kcal'],['💪','Média prot',resumoSemanal.mediaProtSemana+'g'],
+          ['🏋️','Treinos',resumoSemanal.treinos+'x'],['👟','Passos méd.',resumoSemanal.mediaPassosSemana.toLocaleString()],
+        ].map(([ic,l,v])=>(
+          <div key={l} className="resumo-stat"><div className="resumo-stat-v">{ic} {v}</div><div className="resumo-stat-l">{l}</div></div>
+        ))}
+      </div>
+      <div className="resumo-frase">{resumoSemanal.frase}</div>
+    </div>}
     {/* REFEIÇÕES */}
     <div className="sec">
       <div className="sec-hdr"><span className="sec-t">Refeições de hoje</span></div>
       {tiposRef.map(t=>{
-        const ref=refeicoes.find(r=>r.tipo===t.tipo);
+        const ref=refeicoesData.find(r=>r.tipo===t.tipo);
         return<div key={t.tipo} className="meal" onClick={()=>setAddModal({tipo:'alimento',subtipo:t.tipo})}>
           <span className="meal-ico">{t.icon}</span>
           <div className="meal-info">
@@ -1345,13 +1881,14 @@ function TreinosPage({usuario,showToast}){
       {nome:'Tríceps francês com halter',series:3,reps:'12,12,10',dica:'Sinta o alongamento. Não bata no pescoço.'},
       {nome:'Flexão de braço',series:3,reps:'máximo',dica:'Pode iniciar o treino com isso para aquecer.'},
     ]},
-    C:{nome:'Treino C — Pernas + Glúteos ⭐ Novo',grupos:['Pernas','Glúteos'],exercicios:[
+    C:{nome:'Treino C — Pernas + Glúteos + Core ⭐',grupos:['Pernas','Glúteos','Core'],exercicios:[
       {nome:'Agachamento livre',series:4,reps:'15,12,12,10',dica:'⭐ Mais importante! Maior grupo muscular = mais hormônios.'},
       {nome:'Avanço com halteres',series:3,reps:'12,10,10',dica:'Alterna as pernas. Ótimo para glúteos.'},
       {nome:'Stiff com halteres',series:3,reps:'12,10,10',dica:'Costas retas, quadril para trás. Sinta o posterior.'},
       {nome:'Agachamento com halteres',series:3,reps:'15,12,12',dica:'Pés um pouco mais abertos. Vá fundo.'},
       {nome:'Panturrilha em pé',series:4,reps:'20,18,15,15',dica:'Use um degrau para maior amplitude.'},
-      {nome:'Prancha',series:3,reps:'30s,40s,45s',dica:'Core forte = melhor em todos os exercícios.'},
+      {nome:'Abdominal crunch',series:3,reps:'20,15,15',dica:'Suba devagar, desça controlado. Não use impulso do pescoço.'},
+      {nome:'Prancha',series:3,reps:'30s,40s,45s',dica:'Core forte = melhor desempenho em todos os exercícios.'},
     ]},
   };
   const tr=treinosData[tab];
@@ -1480,6 +2017,18 @@ function App(){
   const [showCheckin,setShowCheckin]=useState(false);
   const [addModal,setAddModal]=useState(null);
   const [toast,setToast]=useState(null);
+  const [streak,setStreak]=useState(0);
+  const [resumoSemanal,setResumoSemanal]=useState(null);
+  const [historicoSemana,setHistoricoSemana]=useState([]);
+  const [metabolismoModal,setMetabolismoModal]=useState(null);
+  const [pwaPrompt,setPwaPrompt]=useState(null);
+
+  // PWA install prompt
+  useEffect(()=>{
+    const handler=e=>{e.preventDefault();setPwaPrompt(e);};
+    window.addEventListener('beforeinstallprompt',handler);
+    return()=>window.removeEventListener('beforeinstallprompt',handler);
+  },[]);
 
   const showToast=(msg,type='s')=>{setToast({msg,type});setTimeout(()=>setToast(null),3000);};
 
@@ -1493,6 +2042,37 @@ function App(){
     ]);
     setCheckin(ci||null);
     setRefeicoes(refs||[]);
+
+    // Dados extras: checkins semana, streak, resumo
+    const dataInicio=new Date();dataInicio.setDate(dataInicio.getDate()-7);
+    const dataInicioStr=dataInicio.toISOString().split('T')[0];
+    const[{data:cks7},{data:refs7},{data:treinos7}]=await Promise.all([
+      sb.from('checkins_diarios').select('*').eq('usuario_id',uid).gte('data',dataInicioStr).order('data',{ascending:false}),
+      sb.from('refeicoes').select('data,calorias_total,proteina_total').eq('usuario_id',uid).gte('data',dataInicioStr),
+      sb.from('treinos').select('data').eq('usuario_id',uid).gte('data',dataInicioStr),
+    ]);
+
+    // Montar histórico da semana
+    const hist=(cks7||[]).map(c=>{
+      const refsD=(refs7||[]).filter(r=>r.data===c.data);
+      return{
+        data:c.data,
+        cal:refsD.reduce((s,r)=>s+(r.calorias_total||0),0),
+        prot:refsD.reduce((s,r)=>s+(r.proteina_total||0),0),
+        passos:c.passos||0,
+        treino:!!(treinos7||[]).find(t=>t.data===c.data),
+      };
+    });
+    setHistoricoSemana(hist);
+
+    // Streak
+    setStreak(calcStreak(cks7||[]));
+
+    // Resumo semanal (só domingo)
+    if(new Date().getDay()===0&&hist.length>=3){
+      setResumoSemanal(gerarResumoSemanal(hist,u));
+    }
+
     if(!ci)setTimeout(()=>setShowCheckin(true),700);
     setLoading(false);
   },[]);
@@ -1511,7 +2091,7 @@ function App(){
       else if(tipo==='evento')setAddModal('evento');
       else if(tipo==='bebida')setAddModal({tipo:'alimento',subtipo:'bebida'});
       else if(tipo==='refeicao')setAddModal({tipo:'alimento',subtipo:'almoco'});
-      else if(tipo==='treino'){setTab('treinos');}
+      else if(tipo==='treino')setAddModal('treino_dia');
       else if(tipo==='cigarro')setShowCheckin(true);
     },120);
   };
@@ -1524,7 +2104,7 @@ function App(){
   return<div className="app">
     {toast&&<Toast msg={toast.msg} type={toast.type} onClose={()=>setToast(null)}/>}
     <div className="main">
-      {tab==='home'&&<Dashboard usuario={usuario} checkin={checkin} refeicoes={refeicoes} refresh={refresh} showToast={showToast}/>}
+      {tab==='home'&&<Dashboard usuario={usuario} checkin={checkin} refeicoes={refeicoes} refresh={refresh} showToast={showToast} streak={streak} resumoSemanal={resumoSemanal} historicoSemana={historicoSemana} pwaPrompt={pwaPrompt}/>}
       {tab==='treinos'&&<TreinosPage usuario={usuario} showToast={showToast}/>}
       {tab==='historico'&&<HistoricoPage usuario={usuario}/>}
       {tab==='perfil'&&<PerfilPage usuario={usuario} onLogout={()=>{localStorage.removeItem('evolua_uid');setUsuario(null);}}/>}
@@ -1537,8 +2117,20 @@ function App(){
         </button>
       )}
     </nav>
-    {showCheckin&&<CheckinModal usuario={usuario} onClose={()=>setShowCheckin(false)} onSave={()=>{refresh();showToast('Check-in salvo! ☀️');}}/>}
+    {showCheckin&&<CheckinModal usuario={usuario} onClose={()=>setShowCheckin(false)}
+      onSave={()=>{refresh();showToast('Check-in salvo! ☀️');}}
+      onMetabolismo={(sug)=>{setMetabolismoModal(sug);setShowCheckin(false);}}/>}
+    {metabolismoModal&&<MetabolismoModal
+      sugestao={metabolismoModal} usuario={usuario}
+      onAceitar={(cal,prot)=>{
+        setUsuario(u=>({...u,meta_calorica:cal,meta_proteina:prot}));
+        setMetabolismoModal(null);
+        refresh();
+        showToast('Metas atualizadas! 🧠');
+      }}
+      onRecusar={()=>setMetabolismoModal(null)}/>}
     {addModal==='menu'&&<AddMenu onClose={()=>setAddModal(null)} onSelect={handleAdd}/>}
+    {addModal==='treino_dia'&&<TreinoDiaModal usuario={usuario} onClose={()=>setAddModal(null)} onSave={()=>{refresh();showToast('Treino registrado! 💪');}} showToast={showToast}/>}
     {addModal==='passos'&&<PassosModal usuario={usuario} checkin={checkin} onClose={()=>setAddModal(null)} onSave={()=>{refresh();showToast('Passos atualizados! 👟');}}/>}
     {addModal==='evento'&&<EventoModal usuario={usuario} onClose={()=>setAddModal(null)} onSave={refresh} showToast={showToast}/>}
     {addModal?.tipo==='alimento'&&<AddAlimentoModal usuario={usuario} tipo={addModal.subtipo} onClose={()=>setAddModal(null)} onSave={()=>{refresh();showToast('Adicionado! 🍽️');}} showToast={showToast}/>}
