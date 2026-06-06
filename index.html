@@ -1675,7 +1675,7 @@ function Dashboard({usuario,checkin,refeicoes,refresh,showToast,streak,resumoSem
   const restaProt=Math.max(0,usuario.meta_proteina-totalProt);
   // ajuste por passos
   const calExtra=Math.round((checkinData?.passos||0)*0.04);
-  const treinoHoje=checkinData?.observacao?.includes('treino:')?checkinData.observacao.match(/treino:([ABC])/)?.[1]:null:null;
+  const treinoHoje = checkinData?.observacao?.includes('treino:') ? checkinData.observacao.match(/treino:([ABC])/)?.[1] : null;
   const calTreino=treinoHoje?GASTO_TREINO[treinoHoje]||0:0;
   const metaAjustada=usuario.meta_calorica+calExtra+calTreino;
   const extraTotal=calExtra+calTreino;
